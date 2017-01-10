@@ -1,0 +1,21 @@
+{
+  "name": "bearing_failure_simulation",
+  "version": "1.0.0",
+  "description": "A simulator for bearing failures on a system for the Simulation course.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "simulator",
+    "simulation",
+    "bearing",
+    "failure",
+    "coursework"
+  ],
+  "author": "Karim Gawish",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^1.4.13"
+  }
+}
