@@ -59,3 +59,6 @@ class ReliabilityTestSystem {
         console.log('/----------------/');
         console.log();
     }
+}
+
+export default ReliabilityTestSystem;

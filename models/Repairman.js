@@ -1,25 +1,27 @@
+import _ from 'lodash';
+
 class Repairman {
     constructor(name, ...randomnessvars) {
         this._name = name;
         this._description = "Fixes a non-functional bearing."
         this._repair_cost_per_hour = parseFloat(30) / parseFloat(60);
 
-        this._delay_time = randomnessvars[0];
-        this._probability = randomnessvars[1];
-        this._cumulative = _.each(this._probability, (index, element) => {
+        var cumulative = _.map(randomnessvars[1], (element, index) => {
             var total = 0;
             for (let i = 0; i <= index; i++) {
-                total += this._probability[i];
+                total += randomnessvars[1][i];
             }
             return total;
         });
-        this._distribution_sample_of_delay_time = function() {
+        this._distribution_sample = function() {
             let rand = Math.random();
-            for (let i = 0; i < this._delay_time.length; i++) {
-                if (i === 0 && rand < this._cumulative[i])
-                    return this._delay_time[i];
-                if (rand < this._cumulative[i] && rand >= this._cumulative[i - 1]) return this._delay_time[i];
+            for (let i = 0; i < randomnessvars[0].length; i++) {
+                if (i === 0 && rand < cumulative[i])
+                    return randomnessvars[0][i];
+                if (rand < cumulative[i] && rand >= cumulative[i - 1]) return randomnessvars[0];
             }
-        };
+        }();
     }
 }
+
+export default Repairman;
