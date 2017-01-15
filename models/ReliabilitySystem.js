@@ -5,11 +5,16 @@ class ReliabilityTestSystem {
         this._current_time = 0;
         this._end_time = -1;
         this._machine = null;
+        this._repairman = null;
         this._states = [];
     }
 
     assign_machine(machine) {
         this._machine = machine;
+    }
+
+    assign_repairman(repairman) {
+        this._repairman = repairman;
     }
 
     calculate_stats() {
@@ -39,25 +44,6 @@ class ReliabilityTestSystem {
             this.capture_state();
         }
         console.log(this);
-    }
-
-    toString() {
-        console.log('/----------------/');
-        console.log('/----------------/');
-        console.log(this._name);
-        console.log(this._description);
-        console.log('/----------------/');
-        console.log(this._current_time);
-        console.log(this._end_time);
-        console.log('/----------------/');
-        console.log('Machine: ' + this._machine);
-        console.log('Bearings: ' + this._bearings);
-        console.log('Repairman: ' + this._repairman);
-        console.log('/----------------/');
-        console.log('Stats: ');
-        console.log('/----------------/');
-        console.log('/----------------/');
-        console.log();
     }
 }
 
