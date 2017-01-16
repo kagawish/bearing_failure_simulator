@@ -11,9 +11,20 @@ class MyBearings extends React.Component {
   }
 
   render() {
+    const bearingsList = this.props.bearings.map((bearing, index) => {
+      return (
+        <li key={index}>
+          {bearing._name} ({bearing._cost}) ({bearing._distribution_sample})
+        </li>
+      );
+    });
+
     return (
       <div>
         <Subheader>Bearings</Subheader>
+        <ul>
+          {bearingsList}
+        </ul>
       </div>
     );
   }

@@ -9,6 +9,10 @@ class ReliabilityTestSystem {
         this._states = [];
     }
 
+    assign_end_time(time) {
+        this._end_time = time;
+    }
+
     assign_machine(machine) {
         this._machine = machine;
     }
@@ -43,6 +47,7 @@ class ReliabilityTestSystem {
             this.calculate_stats();
             this.capture_state();
         }
+        return this;
     }
 }
 

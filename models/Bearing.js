@@ -5,6 +5,7 @@ class Bearing {
         this._name = name;
         this._description = "An Indespensible part of the machine";
         this._cost = 32;
+        this._is_functional = true;
 
         var cumulative = _.map(randomnessvars[2], (element, index) => {
             var total = 0;

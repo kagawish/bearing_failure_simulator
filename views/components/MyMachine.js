@@ -14,6 +14,8 @@ class MyMachine extends React.Component {
     return (
       <div>
         <Subheader>Machine</Subheader>
+        <h5>{this.props.machine._name}</h5>
+        <h5>{this.props.machine._downtime_cost}</h5>
       </div>
     );
   }

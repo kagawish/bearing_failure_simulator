@@ -27,6 +27,8 @@ myReliabilitySystem.assign_machine(myMachine);
 
 myReliabilitySystem.assign_repairman(myRepairman);
 
+myReliabilitySystem.assign_end_time(10);
+
 ReactDOM.render(
   <App system={myReliabilitySystem}/>,
   document.getElementById('app')

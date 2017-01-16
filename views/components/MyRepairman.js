@@ -14,6 +14,7 @@ class MyRepairman extends React.Component {
     return (
       <div>
         <Subheader>Repairman</Subheader>
+        <h5>{this.props.repairman._name} ({this.props.repairman._repair_cost_per_hour}) ({this.props.repairman._distribution_sample})</h5>
       </div>
     );
   }
