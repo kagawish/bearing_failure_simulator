@@ -3,9 +3,9 @@ class ReliabilityTestSystem {
         this._name = name;
         this._description = "A system that tests the most cost-effective way to repair a milling machine's bearings."
         this._current_time = 0;
-        this._end_time = -1;
+        this._end_time = 0;
         this._machine = null;
-        this._repairman = null;
+        this._repair_all = true;
         this._total_cost = 0;
         this._states = [];
     }
@@ -16,22 +16,35 @@ class ReliabilityTestSystem {
 
     assign_machine(machine) {
         this._machine = machine;
-    }
-
-    assign_repairman(repairman) {
-        this._repairman = repairman;
+    } 
+ 
+    capture_state() {
+        var current_state = {
+            machine: this._machine._name,
+            bearings: JSON.stringify(this._machine._bearings),
+            repairman: JSON.stringify(this._machine._repairman)
+        };
+        this._states.push(current_state);
     }
 
     calculate_stats() {
     }
 
-    capture_state() {
-    }
-
-    buy_bearing() {
-    }
-
-    replace_bearing() {
+    advance_components_states() {
+        if (this._machine.is_broken()) {
+            if (this._machine._repairman.is_available()) {
+                if (this._repair_all) {
+                    this._machine.replace_all_bearings();
+                } 
+                else {
+                    this._machine.replace_broken_bearings();
+                }
+            } else {
+                this._machine._repairman.approaches();
+            }
+        } else {
+            this._machine.use_bearings();
+        }
     }
 
     advance_timeline(n) {
@@ -41,17 +54,13 @@ class ReliabilityTestSystem {
                 return;
             }
 
-            this._machine._bearings.forEach((bearing) => {
-            	if(bearing.isBroken()) {
-            		this.buyBearing();
-            		this.replaceBearing();
-            	}
-            });
+            this.advance_components_states();
             
             this._current_time++;
 
-            this.calculate_stats();
             this.capture_state();
+
+            this.calculate_stats();
         }
         return this;
     }

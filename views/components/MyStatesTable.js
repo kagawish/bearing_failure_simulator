@@ -9,29 +9,25 @@ class MyStatesTable extends React.Component {
 
   render() {
     var table_rows = this.props.states.map((state, index) => {
-        <TableRow>
-          <TableRowColumn>index</TableRowColumn>
-          <TableRowColumn>state.elevator</TableRowColumn>
-          <TableRowColumn>state.queue</TableRowColumn>
-          <TableRowColumn>state.materials</TableRowColumn>
-        </TableRow>
+        return (
+          <TableRow style={{height:'100px', overflow: 'initial'}} key={index}>
+            <TableRowColumn style={{whiteSpace: 'initial', overflow: 'initial'}}>{state.bearings}</TableRowColumn>
+            <TableRowColumn style={{whiteSpace: 'initial', overflow: 'initial'}}>{state.repairman}</TableRowColumn>
+          </TableRow>
+        );
     });
-
-    console.log(table_rows);
 
     return (
       <div>
         <Subheader>States Table</Subheader>
         <Table>
-          <TableHeader>
+          <TableHeader displaySelectAll={false}>
             <TableRow>
-              <TableHeaderColumn>Time</TableHeaderColumn>
-              <TableHeaderColumn>Elevator</TableHeaderColumn>
-              <TableHeaderColumn>Queue</TableHeaderColumn>
-              <TableHeaderColumn>Materials</TableHeaderColumn>
+              <TableHeaderColumn>Bearings</TableHeaderColumn>
+              <TableHeaderColumn>Repairman</TableHeaderColumn>
             </TableRow>
           </TableHeader>
-          <TableBody>
+          <TableBody showRowHover={true} displayRowCheckbox={false}>
             {table_rows}
           </TableBody>
         </Table>

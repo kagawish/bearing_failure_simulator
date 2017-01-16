@@ -43,7 +43,7 @@ class App extends React.Component {
 				    	bearings={this.state.system._machine._bearings} 
 				    />
 				    <MyRepairman
-				    	repairman={this.state.system._repairman}
+				    	repairman={this.state.system._machine._repairman}
 				    />
 				    <MyStatesTable 
 				    	states={this.state.system._states}

@@ -22,12 +22,11 @@ var myRepairman = new Repairman('My Repairman', [5, 10, 15], [0.6, 0.3, 0.1]);
 myMachine.assign_bearing(myBearing1);
 myMachine.assign_bearing(myBearing2);
 myMachine.assign_bearing(myBearing3);
+myMachine.assign_repairman(myRepairman);
 
 myReliabilitySystem.assign_machine(myMachine);
 
-myReliabilitySystem.assign_repairman(myRepairman);
-
-myReliabilitySystem.assign_end_time(10);
+myReliabilitySystem.assign_end_time(365 * 24 * 60);
 
 ReactDOM.render(
   <App system={myReliabilitySystem}/>,
