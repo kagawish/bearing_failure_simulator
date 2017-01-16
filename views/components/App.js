@@ -1,4 +1,16 @@
 import React from 'react';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+
+import MyHeader from './MyHeader';
+import MyMachine from './MyMachine';
+import MyBearings from './MyBearings';
+import MyRepairman from './MyRepairman';
+import MyStatesTable from './MyStatesTable';
+import MyTimeline from './MyTimeline';
+import MyAdvanceButton from './MyAdvanceButton';
+
+injectTapEventPlugin();
 
 class App extends React.Component {
 	constructor(props) {
@@ -47,3 +59,5 @@ class App extends React.Component {
 		);
 	}
 }
+
+export default App;

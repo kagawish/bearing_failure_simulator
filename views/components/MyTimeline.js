@@ -15,6 +15,7 @@ class MyTimeline extends React.Component {
 		return (
 		  <div>
 		    <Subheader>System Components</Subheader>
+		    <Slider step={1/this.props.end_time} value={this.props.current_time/this.props.end_time} />
 		  </div>
 		);
 	}

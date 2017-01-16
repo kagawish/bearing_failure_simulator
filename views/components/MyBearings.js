@@ -5,7 +5,7 @@ import Subheader from 'material-ui/Subheader';
 /**
  * A simple example of a scrollable `GridList`.
  */
-class MyBearing extends React.Component {
+class MyBearings extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -13,10 +13,10 @@ class MyBearing extends React.Component {
   render() {
     return (
       <div>
-        <Subheader>Bearing</Subheader>
+        <Subheader>Bearings</Subheader>
       </div>
     );
   }
 }
 
-export default MyBearing;
+export default MyBearings;

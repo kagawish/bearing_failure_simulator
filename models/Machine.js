@@ -6,7 +6,7 @@ class Machine {
 	}
 
 	assign_bearing(bearing) {
-        this._bearings.push(bearings);
+        this._bearings.push(bearing);
     }
 
     buy_bearing() {

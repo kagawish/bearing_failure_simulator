@@ -43,7 +43,6 @@ class ReliabilityTestSystem {
             this.calculate_stats();
             this.capture_state();
         }
-        console.log(this);
     }
 }
 
