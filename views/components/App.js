@@ -7,6 +7,7 @@ import MyMachine from './MyMachine';
 import MyBearings from './MyBearings';
 import MyRepairman from './MyRepairman';
 import MyStatesTable from './MyStatesTable';
+import MyCharts from './MyCharts';
 import MyTimeline from './MyTimeline';
 import MyAdvanceButton from './MyAdvanceButton';
 
@@ -46,6 +47,8 @@ class App extends React.Component {
 				    />
 				    <MyStatesTable 
 				    	states={this.state.system._states}
+				    />
+				    <MyCharts
 				    />
 				    <MyTimeline 
 				    	current_time={this.state.system._current_time}

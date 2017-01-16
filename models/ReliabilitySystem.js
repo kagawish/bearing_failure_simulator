@@ -6,6 +6,7 @@ class ReliabilityTestSystem {
         this._end_time = -1;
         this._machine = null;
         this._repairman = null;
+        this._total_cost = 0;
         this._states = [];
     }
 
@@ -27,18 +28,23 @@ class ReliabilityTestSystem {
     capture_state() {
     }
 
+    buy_bearing() {
+    }
+
+    replace_bearing() {
+    }
+
     advance_timeline(n) {
         for (let i = 0; i < n; i++) {
             if (this._current_time === this._end_time) {
                 alert('Time ended.');
-                console.log(this);
                 return;
             }
 
             this._machine._bearings.forEach((bearing) => {
             	if(bearing.isBroken()) {
-            		this._machine.buyBearing();
-            		this._machine.replaceBearing();
+            		this.buyBearing();
+            		this.replaceBearing();
             	}
             });
             

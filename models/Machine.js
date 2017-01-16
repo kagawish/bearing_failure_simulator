@@ -8,13 +8,6 @@ class Machine {
 	assign_bearing(bearing) {
         this._bearings.push(bearing);
     }
-
-    buy_bearing() {
-    }
-
-    replace_bearing() {
-    }
-
 }
 
 export default Machine;
