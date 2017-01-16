@@ -13,6 +13,7 @@ class MyStatesTable extends React.Component {
           <TableRow style={{height:'100px', overflow: 'initial'}} key={index}>
             <TableRowColumn style={{whiteSpace: 'initial', overflow: 'initial'}}>{state.bearings}</TableRowColumn>
             <TableRowColumn style={{whiteSpace: 'initial', overflow: 'initial'}}>{state.repairman}</TableRowColumn>
+            <TableRowColumn style={{whiteSpace: 'initial', overflow: 'initial'}}>{state.cost}</TableRowColumn>
           </TableRow>
         );
     });
@@ -25,6 +26,7 @@ class MyStatesTable extends React.Component {
             <TableRow>
               <TableHeaderColumn>Bearings</TableHeaderColumn>
               <TableHeaderColumn>Repairman</TableHeaderColumn>
+              <TableHeaderColumn>Cost</TableHeaderColumn>
             </TableRow>
           </TableHeader>
           <TableBody showRowHover={true} displayRowCheckbox={false}>

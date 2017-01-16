@@ -5,6 +5,7 @@ class Machine {
         this._repairman = null;
 		this._downtime_cost = 10;
 		this._working = true;
+		this._total_cost = 0;
 	}
 
 	assign_bearing(bearing) {
@@ -16,8 +17,10 @@ class Machine {
     }
 
     is_broken() {
-    	console.log('Machine is broken?');
-    	if (!this._working) return true;
+    	if (!this._working) {
+    		this._total_cost += 10;
+    		return true;
+    	}
     	this._bearings.some((bearing) => {
         	if(bearing.is_broken()) {
         		console.log('Bearing is broken');
@@ -39,6 +42,7 @@ class Machine {
     		bearing.replace_one();
     	});
     	this._working = true;
+    	this._total_cost += this._bearings[0]._cost * 3;
     }
 
     replace_broken_bearings() {

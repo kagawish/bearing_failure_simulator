@@ -22,15 +22,20 @@ class ReliabilityTestSystem {
         var current_state = {
             machine: this._machine._name,
             bearings: JSON.stringify(this._machine._bearings),
-            repairman: JSON.stringify(this._machine._repairman)
+            repairman: JSON.stringify(this._machine._repairman),
+            cost: this._total_cost
         };
         this._states.push(current_state);
     }
 
     calculate_stats() {
+        var total_cost_per_cycle = 0;
+        this._total_cost += this._machine._total_cost;
     }
 
     advance_components_states() {
+        this._machine._total_cost = 0;
+
         if (this._machine.is_broken()) {
             console.log('Machine is broken');
             if (this._machine._repairman.is_available()) {
@@ -69,9 +74,9 @@ class ReliabilityTestSystem {
             
             this._current_time++;
 
-            this.capture_state();
-
             this.calculate_stats();
+
+            this.capture_state();
         }
         return this;
     }
