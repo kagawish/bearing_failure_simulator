@@ -16,8 +16,11 @@ class Machine {
     }
 
     is_broken() {
-    	this._bearings.forEach((bearing) => {
+    	console.log('Machine is broken?');
+    	if (!this._working) return true;
+    	this._bearings.some((bearing) => {
         	if(bearing.is_broken()) {
+        		console.log('Bearing is broken');
         		this._working = false;
         		return true;
         	}

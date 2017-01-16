@@ -26,7 +26,8 @@ class Bearing {
     }
 
     is_broken() {
-        return (this._time_until_broken === 0);
+        console.log(this._time_until_broken);
+        return this._time_until_broken === 0;
     }
 
     use_one() {

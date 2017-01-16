@@ -5,7 +5,8 @@ class Repairman {
         this._name = name;
         this._description = "Fixes a non-functional bearing."
         this._repair_cost_per_hour = parseFloat(30) / parseFloat(60);
-        this._time_until_arrival = 0;
+        this._time_until_arrival = -1;
+        this._called = false;
 
         var cumulative = _.map(randomnessvars[1], (element, index) => {
             var total = 0;
@@ -25,8 +26,13 @@ class Repairman {
         };
     }
 
-    call () {
+    call() {
         this._time_until_arrival = this._distribution_sample();
+        this._called = true;
+    }
+
+    was_called() {
+        return this._called;
     }
 
     is_available() {
