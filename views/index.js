@@ -30,7 +30,9 @@ myMachine.assign_repairman(myRepairman);
 
 myReliabilitySystem.assign_machine(myMachine);
 
-myReliabilitySystem.assign_end_time(365 * 24 * 60);
+myReliabilitySystem.assign_end_time(24 * 60);
+
+myReliabilitySystem.advance_timeline(24 * 60);
 
 ReactDOM.render(
   <App system={myReliabilitySystem}/>,

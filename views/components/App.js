@@ -29,6 +29,12 @@ class App extends React.Component {
 		});
 	}
 
+	slide_timeline(newtime) {
+		if (newtime > this.state.system._current_time) {
+			this.advance_timeline_state(newtime - this.state.system._current_time);
+		}
+	}
+
 	render() {
 		return (
 			<MuiThemeProvider>
@@ -49,10 +55,12 @@ class App extends React.Component {
 				    	states={this.state.system._states}
 				    />
 				    <MyCharts
+				    	cost_states={this.state.system._cost_states}
 				    />
 				    <MyTimeline 
 				    	current_time={this.state.system._current_time}
 				    	end_time={this.state.system._end_time}
+				    	on_change={this.slide_timeline.bind(this)}
 				    />
 				    <MyAdvanceButton 
 				    	advance_method={this.advance_timeline_state}

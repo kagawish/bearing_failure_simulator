@@ -4,7 +4,8 @@ class Repairman {
     constructor(name, ...randomnessvars) {
         this._name = name;
         this._description = "Fixes a non-functional bearing."
-        this._repair_cost_per_hour = parseFloat(30) / parseFloat(60);
+        this._repair_cost_per_min = parseFloat(30) / parseFloat(60);
+        this._repair_time_per_bearing_numbers = [20, 30, 40];
         this._time_until_arrival = -1;
         this._called = false;
 

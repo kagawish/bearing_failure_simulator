@@ -21,7 +21,7 @@ class MyStatesTable extends React.Component {
     return (
       <div>
         <Subheader>States Table</Subheader>
-        <Table>
+        <Table height={'400px'}>
           <TableHeader displaySelectAll={false}>
             <TableRow>
               <TableHeaderColumn>Bearings</TableHeaderColumn>

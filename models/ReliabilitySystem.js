@@ -8,6 +8,8 @@ class ReliabilityTestSystem {
         this._repair_all = true;
         this._total_cost = 0;
         this._states = [];
+        this._cost_states = { x: [], y: []};
+        this._sample_interval = 10;
     }
 
     assign_end_time(time) {
@@ -26,6 +28,10 @@ class ReliabilityTestSystem {
             cost: this._total_cost
         };
         this._states.push(current_state);
+        if (this._current_time % this._sample_interval === 0) {
+            this._cost_states.x.push(this._current_time.toString());
+            this._cost_states.y.push(this._total_cost);
+        }
     }
 
     calculate_stats() {
@@ -45,10 +51,12 @@ class ReliabilityTestSystem {
                 if (this._repair_all) {
                     console.log('Repair all');
                     this._machine.replace_all_bearings();
+                    this._total_cost += this._machine._repairman._repair_time_per_bearing_numbers[this._machine._bearings.length-1] * this._machine._repairman._repair_cost_per_min;
                 } 
                 else {
                     console.log('Repair One');
                     this._machine.replace_broken_bearings();
+                    this._total_cost += this._machine._repairman._repair_time_per_bearing_numbers[0] * this._machine._repairman._repair_cost_per_min;
                 }
             } else if (!this._machine._repairman.is_available() && !this._machine._repairman.was_called()) {
                 console.log('Repairman called');

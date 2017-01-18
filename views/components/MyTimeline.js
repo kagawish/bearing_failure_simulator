@@ -11,10 +11,21 @@ class MyTimeline extends React.Component {
 		super(props);
 	}
 
+	handleSlideStop(event, value) { 
+		this.props.on_change(value); 
+	}
+
 	render() {
 		return (
 		  <div>
-		    <Slider step={1/this.props.end_time} value={this.props.current_time/this.props.end_time} />
+		  	<h6> {this.props.current_time} / {this.props.end_time} </h6>
+		    <Slider 
+		    	onChange={this.handleSlideStop.bind(this)} 
+		    	min={0}
+		    	max={this.props.end_time}
+		    	step={1} 
+		    	value={this.props.current_time} 
+		    />
 		  </div>
 		);
 	}
