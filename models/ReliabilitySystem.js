@@ -1,3 +1,11 @@
+/**
+ * This represents the main Class, or the Containing class,
+ * This class represents the System Component which
+ * would contain all the different other
+ * components and may help their
+ * interaction.
+ * It also contains the statistics about the system as a whole.
+ */
 class ReliabilityTestSystem {
     constructor(name) {
         this._name = name;
@@ -12,14 +20,26 @@ class ReliabilityTestSystem {
         this._sample_interval = 10;
     }
 
+    /**
+     * Decide the experiment is going to end after how many cycles.
+     */
     assign_end_time(time) {
         this._end_time = time;
     }
 
+    /**
+     * Links a certain Machine Component to this system.
+     */
     assign_machine(machine) {
         this._machine = machine;
     } 
- 
+    
+    /**
+     * Produces a State Object, that can be used later on in the states
+     * array and can over all help us identify the different
+     * states the system was in for each cycle
+     * when it was working.
+     */
     capture_state() {
         var current_state = {
             machine: this._machine._name,
@@ -34,11 +54,22 @@ class ReliabilityTestSystem {
         }
     }
 
+    /**
+     * Iteratively, in each cycle, recalculates the different,
+     * stats that we are searching for in our system.
+     */
     calculate_stats() {
         var total_cost_per_cycle = 0;
         this._total_cost += this._machine._total_cost;
     }
 
+    /**
+     * Main Actions needed to be taken each cycle, namely:
+     * 1- Checks if the machine is broken.
+     * 2- If the repairman if available, we replace the bearings.
+     * 3- If not, we call the repairman and we wait until he comes.
+     * 4- If the machine is not broken, we simply use it, by using the bearings.
+     */
     advance_components_states() {
         this._machine._total_cost = 0;
 
@@ -71,6 +102,11 @@ class ReliabilityTestSystem {
         }
     }
 
+    /**
+     * Simulates advancing the time by n cycles, and for each cycle, if we didn't
+     * bypass the end time, we take needed actions for the components, advance current
+     * time, calculate stats for the system and take a snapshot of the current state.
+     */
     advance_timeline(n) {
         for (let i = 0; i < n; i++) {
             if (this._current_time === this._end_time) {
