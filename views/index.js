@@ -1,3 +1,8 @@
+/**
+ * The main application driver file.
+ * This file creates both system in comparaison
+ * finally it renders the App ReactJS component on the interface.
+ */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
