@@ -6,9 +6,6 @@ class MyCharts extends React.Component {
 		super(props);
 	}
 
-	componentDidUpdate(prevProps, prevState) {
-	}
-
 	render() {
 		const data = {
 		  labels: this.props.cost_states.x,

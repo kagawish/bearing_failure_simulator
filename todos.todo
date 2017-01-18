@@ -4,7 +4,8 @@ Bearing Failure Simulation Project Todos:
  ✔ Finish Cost Calculation @started(17-01-17 06:53) @done (17-01-18 01:13)
  @lasted(18:20) 
  ✔ Finish Graphs. @started(17-01-18 01:14) @done (17-01-18 03:37) @lasted(2:23)
- ☐ Corner Cases study.
+ ☐ Corner Cases study and fix.
  ☐ Loading.
  ☐ Interface Fixing.
+ ☐ Multiple Iterations.
  ☐ Ask numbers of simulations.

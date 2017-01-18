@@ -64,11 +64,11 @@ myMachine2.assign_repairman(myRepairman2);
 
 myReliabilitySystem2.assign_machine(myMachine2);
 
-myReliabilitySystem2.assign_end_time(365 * 24 * 60);
+myReliabilitySystem2.assign_end_time(24 * 60);
 
 myReliabilitySystem2._repair_all = false;
 
-myReliabilitySystem2.advance_timeline(365 * 24 * 60);
+myReliabilitySystem2.advance_timeline(24 * 60);
 
 ReactDOM.render(
   <App 
