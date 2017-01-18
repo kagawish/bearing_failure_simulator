@@ -47,8 +47,10 @@ class Machine {
 
     replace_broken_bearings() {
     	this._bearings.forEach((bearing) => {
-    		if (bearing.is_broken()) 
+    		if (bearing.is_broken()) {
     			bearing.replace_one();
+                this._total_cost += this._bearings[0]._cost;
+            }
     	});
     	this._working = true;
     } 

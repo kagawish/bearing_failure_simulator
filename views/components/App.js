@@ -17,7 +17,8 @@ class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			system: this.props.system
+			system: this.props.system,
+			compare_system: this.props.compare_system
 		}
 		this.advance_timeline_state = this.advance_timeline_state.bind(this);
 	}
@@ -38,34 +39,64 @@ class App extends React.Component {
 	render() {
 		return (
 			<MuiThemeProvider>
-			  	<div>
-				    <MyHeader 
-				    	title={this.state.system._name}
-				    />
-				    <MyMachine
-				    	machine={this.state.system._machine} 
-				    />
-				    <MyBearings 
-				    	bearings={this.state.system._machine._bearings} 
-				    />
-				    <MyRepairman
-				    	repairman={this.state.system._machine._repairman}
-				    />
-				    <MyStatesTable 
-				    	states={this.state.system._states}
-				    />
-				    <MyCharts
-				    	cost_states={this.state.system._cost_states}
-				    />
-				    <MyTimeline 
-				    	current_time={this.state.system._current_time}
-				    	end_time={this.state.system._end_time}
-				    	on_change={this.slide_timeline.bind(this)}
-				    />
-				    <MyAdvanceButton 
-				    	advance_method={this.advance_timeline_state}
-				    />
-			    </div>
+				<div className="row">
+				  	<div className="col-sm-6">
+					    <MyHeader 
+					    	title={this.state.system._name}
+					    />
+					    <MyMachine
+					    	machine={this.state.system._machine} 
+					    />
+					    <MyBearings 
+					    	bearings={this.state.system._machine._bearings} 
+					    />
+					    <MyRepairman
+					    	repairman={this.state.system._machine._repairman}
+					    />
+					    <MyStatesTable 
+					    	states={this.state.system._states}
+					    />
+					    <MyCharts
+					    	cost_states={this.state.system._cost_states}
+					    />
+					    <MyTimeline 
+					    	current_time={this.state.system._current_time}
+					    	end_time={this.state.system._end_time}
+					    	on_change={this.slide_timeline.bind(this)}
+					    />
+					    <MyAdvanceButton 
+					    	advance_method={this.advance_timeline_state}
+					    />
+				    </div>
+				    <div className="col-sm-6">
+					    <MyHeader 
+					    	title={this.state.compare_system._name}
+					    />
+					    <MyMachine
+					    	machine={this.state.compare_system._machine} 
+					    />
+					    <MyBearings 
+					    	bearings={this.state.compare_system._machine._bearings} 
+					    />
+					    <MyRepairman
+					    	repairman={this.state.compare_system._machine._repairman}
+					    />
+					    <MyStatesTable 
+					    	states={this.state.compare_system._states}
+					    />
+					    <MyCharts
+					    	cost_states={this.state.compare_system._cost_states}
+					    />
+					    <MyTimeline 
+					    	current_time={this.state.compare_system._current_time}
+					    	end_time={this.state.compare_system._end_time}
+					    	on_change={this.slide_timeline.bind(this)}
+					    />
+					    <MyAdvanceButton 
+					    	advance_method={this.advance_timeline_state}
+					    />
+				    </div>
+			   	</div>
 			</MuiThemeProvider>
 		);
 	}
