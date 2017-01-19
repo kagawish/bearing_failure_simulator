@@ -15,7 +15,7 @@ import Repairman from '../models/Repairman';
 import $ from 'jquery';
 
 
-var global_end_time = 25 * 24 * 60;
+var global_end_time = 20 * 24 * 60;
 
 /**
 	SYSTEM #1
@@ -43,6 +43,8 @@ myReliabilitySystem.assign_machine(myMachine);
 myReliabilitySystem.assign_end_time(global_end_time);
 
 myReliabilitySystem.advance_timeline(global_end_time);
+
+console.log(myMachine._cost_breakdown);
 
 
 /**
@@ -74,6 +76,8 @@ myReliabilitySystem2.assign_end_time(global_end_time);
 myReliabilitySystem2._repair_all = false;
 
 myReliabilitySystem2.advance_timeline(global_end_time);
+
+console.log(myMachine2._cost_breakdown);
 
 ReactDOM.render(
   <App 

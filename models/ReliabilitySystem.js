@@ -59,7 +59,6 @@ class ReliabilityTestSystem {
      * stats that we are searching for in our system.
      */
     calculate_stats() {
-        var total_cost_per_cycle = 0;
         this._total_cost += this._machine._total_cost;
     }
 
@@ -80,10 +79,12 @@ class ReliabilityTestSystem {
                 if (this._repair_all) {
                     this._machine.replace_all_bearings();
                     this._total_cost += this._machine._repairman._repair_time_per_bearing_numbers[this._machine._bearings.length-1] * this._machine._repairman._repair_cost_per_min;
+                    this._machine._cost_breakdown.repairman  += this._machine._repairman._repair_time_per_bearing_numbers[this._machine._bearings.length-1] * this._machine._repairman._repair_cost_per_min;
                 } 
                 else {
                     this._machine.replace_broken_bearings();
                     this._total_cost += this._machine._repairman._repair_time_per_bearing_numbers[0] * this._machine._repairman._repair_cost_per_min;
+                    this._machine._cost_breakdown.repairman  += this._machine._repairman._repair_time_per_bearing_numbers[this._machine._bearings.length-1] * this._machine._repairman._repair_cost_per_min;
                 }
             } else if (!this._machine._repairman.is_available() && !this._machine._repairman.was_called()) {
                 this._machine._repairman.call();

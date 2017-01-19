@@ -13,6 +13,11 @@ class Machine {
 		this._downtime_cost = 10;
 		this._working = true;
 		this._total_cost = 0;
+        this._cost_breakdown = {
+            downtime: 0,
+            replace_bearings: 0,
+            repairman: 0
+        }
 	}
 
     /**
@@ -38,6 +43,7 @@ class Machine {
     is_broken() {
     	if (!this._working) {
     		this._total_cost += 10;
+            this._cost_breakdown.downtime += 10;
     		return true;
     	}
     	this._bearings.some((bearing) => {
@@ -69,6 +75,7 @@ class Machine {
     	});
     	this._working = true;
     	this._total_cost += this._bearings[0]._cost * 3;
+        this._cost_breakdown.replace_bearings += this._bearings[0]._cost * 3;
     }
 
     /**
@@ -80,10 +87,11 @@ class Machine {
     		if (bearing.is_broken()) {
     			bearing.replace_one();
                 this._total_cost += this._bearings[0]._cost;
+                this._cost_breakdown.replace_bearings += this._bearings[0]._cost;
             }
     	});
     	this._working = true;
-    } 
+    }
 }
 
 export default Machine;
