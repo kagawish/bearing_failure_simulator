@@ -74,30 +74,23 @@ class ReliabilityTestSystem {
         this._machine._total_cost = 0;
 
         if (this._machine.is_broken()) {
-            console.log('Machine is broken');
             if (this._machine._repairman.is_available()) {
-                console.log('Repairman is available');
                 this._machine._repairman._called = false;
                 this._machine._repairman._time_until_arrival = -1;
                 if (this._repair_all) {
-                    console.log('Repair all');
                     this._machine.replace_all_bearings();
                     this._total_cost += this._machine._repairman._repair_time_per_bearing_numbers[this._machine._bearings.length-1] * this._machine._repairman._repair_cost_per_min;
                 } 
                 else {
-                    console.log('Repair One');
                     this._machine.replace_broken_bearings();
                     this._total_cost += this._machine._repairman._repair_time_per_bearing_numbers[0] * this._machine._repairman._repair_cost_per_min;
                 }
             } else if (!this._machine._repairman.is_available() && !this._machine._repairman.was_called()) {
-                console.log('Repairman called');
                 this._machine._repairman.call();
             } else if (!this._machine._repairman.is_available() && this._machine._repairman.was_called()) {
-                console.log('Repairman approaching.');
                 this._machine._repairman.approaches();
             }
         } else {
-            console.log('Machine is not broken');
             this._machine.use_bearings();
         }
     }
